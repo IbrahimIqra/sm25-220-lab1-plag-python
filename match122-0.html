@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>A1_Sec14_23101344_Nafi-Zawoad.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec14_23101344_Nafi-Zawoad.txt<p></p><pre>
+﻿Task 01:
+def mostWater(arr):
+  #To Do
+ 
+  left = 0
+  right = len(height) - 1
+  max_area = 0
+
+
+  while left &lt; right:
+      width = right - left
+      if height[left] &lt; height[right]:
+          h = height[left]
+      else:
+          h = height[right]
+<a name="2"></a><font color="#0000FF"><a href="match122-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+      area = width * h
+      if area &gt; max_area:
+        max_area = area
+      if height[left] &lt; height[right]:
+        left += 1
+      else:
+        right -= 1
+
+
+  print(max_area)
+</font>
+
+Task 02:
+def row_rotation(exam_week, seat_status):
+  r, c = seat_status.shape
+
+
+  new_seat = np.array([None]*r)
+
+
+  for i in range(r):
+    new_seat[(i + exam_week - 1) % r] = seat_status[i]
+  for i in range(r):
+    if "AA" in new_seat[i]:
+      return i+1
+
+
+Task 03:
+<a name="1"></a><font color="#00FF00"><a href="match122-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_13.gif"/></a>
+
+def compress_matrix(mat):
+    rows,cols = mat.shape
+    new_row = rows // 2
+    new_col = cols // 2
+    result = np.zeros((new_row, new_col), dtype=int)
+
+
+    for i in range(0, rows, 2):
+        for j in range(0, cols, 2):
+            sum = (mat[i][j] + mat[i+1][j] + mat[i][j+1] + mat[i+1][j+1])
+</font><a name="4"></a><font color="#FF00FF"><a href="match122-1.html#4" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_5.gif"/></a>
+
+            result[i//2][j//2] = sum
+    return result
+</font>
+
+Task 04:
+<a name="3"></a><font color="#00FFFF"><a href="match122-1.html#3" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_6.gif"/></a>
+
+def play_game(arena):
+    rows, cols = arena.shape
+    points = 0
+    for i in range(rows):
+        for j in range(cols):
+            if arena[i][j] % 50 == 0 and arena[i][j] != 0:
+</font><a name="0"></a><font color="#FF0000"><a href="match122-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_20.gif"/></a>
+
+                if i &gt; 0 and arena[i-1][j] == 2:
+                    points += 2
+                if i &lt; rows-1 and arena[i+1][j] == 2:
+                    points += 2
+                if j &gt; 0 and arena[i][j-1] == 2:
+                    points += 2
+                if j &lt; cols-1 and arena[i][j+1] == 2:
+                    points += 2
+</font>    if points &gt;= 10:
+        print("Points Gained: {}. Your team has survived the game.".format(points))
+    else:
+        print("Points Gained: {}. Your team is out.".format(points))</pre>
+</body>
+</html>

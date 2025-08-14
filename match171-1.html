@@ -1,0 +1,91 @@
+<html>
+<head>
+<title>A1_Sec25_23301491_Farhan-Shefat.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec20_22201082_Shafiul-Zahid-Saim.txt<p></p><pre>
+#Task-1
+
+<a name="2"></a><font color="#0000FF"><a href="match171-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+def mostWater(arr):
+  left=0
+  right=len(arr)-1
+  most_water=0
+  
+  while left&lt;right:
+    if arr[left]&lt;arr[right]:
+      height=arr[left]
+</font>      width=right-left
+      left+=1
+    else:
+      height=arr[right]
+      width=right-left
+      right-=1
+    if most_water&lt;width*height:
+      most_water=width*height
+  print(most_water)
+
+Task-2
+
+def row_rotation(exam_week, seat_status):
+  row,col=seat_status.shape
+  new_arr=np.zeros((row,col),dtype=str)
+  row2,col2=new_arr.shape
+  
+  for i in range(row//2+1):
+    if i&lt;row//2:
+      new_arr[i+exam_week-1]=seat_status[i]
+    else:
+      new_arr[row-1]=seat_status[i]
+    k+=1
+  for j in range(row//2-1):
+    new_arr[j]=seat_status[k]
+    k+=1
+  for l in range(row):
+    for p in range(col):
+      if new_arr[l][p]=='A':
+        print(l,end='\n')
+        
+      break
+  return new_arr
+
+Task-3
+
+def compress_matrix(mat):
+  row,colum=mat.shape
+  arr=np.zeros((row//2,colum//2),dtype=int)
+  sum=0
+  for i in range(0,row,2):
+<a name="1"></a><font color="#00FF00"><a href="match171-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_10.gif"/></a>
+
+    for j in range(0,colum,2):
+      sum=mat[i][j]+mat[i][j+1]+mat[i+1][j]+mat[i+1][j+1]
+      arr[i//2][j//2]=sum
+</font>  return arr
+
+Task-4
+
+def play_game(arena):
+  sum=0
+  row,col=arena.shape
+<a name="0"></a><font color="#FF0000"><a href="match171-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_27.gif"/></a>
+
+  for i in range(row):
+    for j in range(col):
+      if arena[i][j]%50==0 and arena[i][j]!=0:
+        if i&gt;0 and arena[i-1][j]==2:
+          sum+=2
+        if i&lt;row-1 and arena[i+1][j]==2:
+          sum+=2
+        if j&gt;0 and arena[i][j-1]==2:
+          sum+=2
+        if j&lt;col-1 and arena[i][j+1]==2:
+          sum+=2
+  if sum&gt;=10:
+    print(f'Points gained{sum} Your team survied')
+  else:
+    print(f'Points gained {sum} You are out')</font></pre>
+</body>
+</html>

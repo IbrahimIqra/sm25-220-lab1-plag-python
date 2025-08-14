@@ -1,0 +1,92 @@
+<html>
+<head>
+<title>A1_Sec20_23101331_Mahira-Tun-Alia.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec01_23101162_DEEMA-TABASSUM-KHAN.txt<p></p><pre>
+﻿TASK-01
+def mostWater(arr):
+  #To Do
+  leftside=0
+  rightside=len(arr)-1
+  max_water=0
+
+
+  while leftside&lt;rightside:
+    current_water=min(arr[leftside],arr[rightside])*(rightside-leftside)
+    if current_water&gt;max_water:
+      max_water=current_water
+
+
+    elif arr[leftside]&lt; arr[rightside]:
+      leftside+=1
+    else:
+      rightside-=1
+  print(max_water)
+
+
+TASK-02
+def row_rotation(exam_week, seat_status):
+  #To Do
+  row,col=seat_status.shape
+  temp=np.zeros(col,dtype=object)
+  for i in range(exam_week-1):
+    for c in range(col):
+      temp[c]=seat_status[row-1][c]
+    for r in range(row-2,-1,-1):
+      for c in rangw(col):
+        seat_status[r+1][c]=seat_status[r][c]
+    for c in range(col):
+        seat_status[0][c]=temp[c]
+  print_matrix(seat_status)
+  for r in range(row):
+    for c in range(col):
+      if seat_status[r][c] =="AA":
+        return r+1
+
+
+TASK-03
+def compress_matrix(mat):
+  #TO DO
+   row, col = mat.shape
+   print()
+<a name="0"></a><font color="#FF0000"><a href="match35-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_54.gif"/></a>
+
+   emar = np.zeros((row//2,col//2), int)
+   count, count1 = 0, 0
+   for i in range(0,col,col//2):
+      for j in range(0,row,row//2):
+        sum = mat[i][j] + mat[i+1][j] + mat[i][j+1] + mat[i+1][j+1]
+        emar[count][count1] = sum
+        count1 += 1
+      count += 1
+      count1 = 0
+   return emar
+SEX
+TASK-04
+def play_game(arena):
+  row, col = arena.shape
+  point = 0
+  for i in range(row):
+    for j in range(col):
+      if arena[i][j] != 0:
+        if arena[i][j] % 50 == 0:
+          if j-1 &gt;= 0:
+            if arena[i][j-1] == 2:
+              point += 1
+          if i-1 &gt;= 0:
+            if arena[i-1][j] ==2:
+              point += 1
+          if j+1 &lt; col:
+            if arena[i][j+1] == 2:
+              point += 1
+          if i+1 &lt; row:
+            if arena[i+1][j] == 2:
+              point += 1
+  point = point*2
+  if point &gt;= 10:
+    print(f"Points gained: {point}. Your team has survived the game.")
+  else: print(f"Points gained: {point}. Your team is out.")</font></pre>
+</body>
+</html>

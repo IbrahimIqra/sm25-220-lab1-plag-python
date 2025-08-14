@@ -1,0 +1,125 @@
+<html>
+<head>
+<title>A1_Sec04_23301510_ADIB-ANWAR.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec27_22241097_Sharifin-Hasib.txt<p></p><pre>
+﻿Task 1
+def mostWater(arr):
+  left=0
+  right= len(arr)-1
+  maximum=0
+
+
+  while left&lt;right:
+    width=right - left
+    current_height=min(arr[left], arr[right])
+    current_area=width*current_height
+
+
+    maximum= max(maximum, current_area)
+
+
+    if arr[left]&lt;arr[right]:
+      left+=1
+    else:
+      right-=1
+  return maximum
+
+
+
+
+Task 2
+def row_rotation(exam_week, seat_status):
+  row,col=seat_status.shape
+
+
+
+
+  aa_row=-1
+  for row in range(row):
+    if 'AA' in seat_status[row]:
+      aa_row=row
+      break
+  if aa_row==-1:
+    return -1
+  new_row=(aa_row-exam_week)%row
+  rotated_seat_status=np.roll(seat_status, exam_week, axis=0)
+  print_matrix(rotated_seat_status)
+  return new_row
+
+
+
+
+Task 3
+<a name="1"></a><font color="#00FF00"><a href="match88-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_23.gif"/></a>
+
+def compress_matrix(mat):
+  row=len(mat)
+  cols=len(mat[0])
+
+
+
+
+  compressed_rows=row//2
+  compressed_cols=cols//2
+
+
+
+
+  compressed_matrix=np.zeros((compressed_rows,compressed_cols),dtype=int)
+
+
+
+
+  for i in range(0, row, 2):
+    for j in range(0, cols, 2):
+      block_sum=(mat[i][j]+mat[i][j+1]+mat[i+1][j]+mat[i+1][j+1])
+      compressed_matrix[i//2][j//2]=block_sum
+
+
+
+
+  return compressed_matrix
+</font>
+
+
+
+Task 4
+def play_game(arena):
+    total_points = 0
+    rows = len(arena)
+    if rows == 0:
+        print("Points Gained: 0. Your team is out.")
+        return
+    if rows&gt;0:
+      cols = len(arena[0])
+    else:
+      0
+    for i in range(rows):
+<a name="0"></a><font color="#FF0000"><a href="match88-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_30.gif"/></a>
+
+        for j in range(cols):
+            cell_value = arena[i][j]
+            if cell_value % 50 == 0 and cell_value != 0:  
+                if i - 1 &gt;= 0 and arena[i-1][j] == 2:
+                    total_points += 2
+                if i + 1 &lt; rows and arena[i+1][j] == 2:
+                    total_points += 2
+                if j - 1 &gt;= 0 and arena[i][j-1] == 2:
+                    total_points += 2
+                if j + 1 &lt; cols and arena[i][j+1] == 2:
+                    total_points += 2
+   
+    if total_points &gt;= 10:
+        print(f"Points Gained: {total_points}. Your team has survived the game.")
+    else:
+        print(f"Points Gained: {total_points}. Your team is out.")
+
+
+def print_matrix(matrix):
+    for row in matrix:
+        print(' '.join(map(str, row)))</font></pre>
+</body>
+</html>

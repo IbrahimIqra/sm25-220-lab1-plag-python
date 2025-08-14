@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>A1_Sec24_23301390_Sajidul-Islam.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec07_22299481_Mehedi-Zaman-Sami.txt<p></p><pre>
+Assignment1:
+
+Task#1
+#Container with most water
+def mostWater(arr):
+    maxarea = 0
+    left_side = 0
+    right_side = len(arr) - 1 #8
+
+    while left_side &lt; right_side: # 0 &lt; 8
+        height = min(arr[left_side], arr[right_side])
+        width = right_side - left_side
+        area = height * width
+        if area &gt; maxarea:
+            maxarea = area
+        if arr[left_side] &lt; arr[right_side]:
+            left_side = left_side +1
+        else:
+            right_side = right_side -1
+    print(maxarea)
+
+Task#2
+
+#Row Rotation Policy
+def row_rotation(exam_week, seat_status):
+    rows = len(seat_status)
+    cols = len(seat_status[0])
+    actual_week = (exam_week - 1) % rows  
+
+<a name="2"></a><font color="#0000FF"><a href="match119-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_8.gif"/></a>
+
+    rotated_mat = [["" for m in range(cols)] for m in range(rows)] #or rotated = [[""] * cols for m in range(rows)]
+
+    for i in range(rows):
+        new = (i + actual_week) % rows
+        for j in range(cols):
+            rotated_mat[new][j] = seat_status[i][j]
+
+    for i in rotated_mat:
+</font>        print("|", " | ".join(i), "|")
+
+    for i in range(rows):
+        for j in range(cols):
+            if rotated_mat[i][j] == "AA":
+                print(f"\nYour friend AA will be on row {i + 1}")
+                return
+
+Task#3
+#Matrix compressions
+def compress_matrix(mat):
+  mat_rows = len(mat)
+  mat_cols = len(mat[0])
+
+  # new shape: row//2 x col//2
+  new1 = np.zeros((mat_rows//2, mat_cols//2), dtype=int)
+
+  for s in range(0, mat_rows, 2):
+<a name="1"></a><font color="#00FF00"><a href="match119-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_10.gif"/></a>
+
+    for k in range(0, mat_cols, 2):
+
+      sum = (mat[s][k] + mat[s+1][k] +mat[s][k+1] + mat[s+1][k+1])
+      new1[s//2][k//2] = sum
+</font>
+  return new1
+
+Task#4
+#Game arena
+<a name="0"></a><font color="#FF0000"><a href="match119-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_30.gif"/></a>
+
+def play_game(arena):
+    row = len(arena) #4
+    col= len(arena[0]) #4
+    totalpoints = 0
+
+    for mp in range(row): #3
+        for sp in range(col): #1
+            if arena[mp][sp] % 50 == 0 and arena[mp][sp] != 0:
+                if mp &gt; 0 and arena[mp-1][sp] == 2:
+                    totalpoints += 1
+                if mp &lt; row - 1 and arena[mp+1][sp] == 2:
+                    totalpoints += 1
+                if sp &gt; 0 and arena[mp][sp-1] == 2:
+                    totalpoints += 1
+                if sp &lt; col - 1 and arena[mp][sp+1] == 2:
+                    totalpoints += 1
+</font>
+    if totalpoints*2 &lt; 10:
+        print(f"Points Gained: {totalpoints*2}. Your team is out.")
+    else:
+        print(f"Points Gained: {totalpoints*2}. Your team has survived the game.")</pre>
+</body>
+</html>

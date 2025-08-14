@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>A1_Sec05_22301590_Fahim-Shahriar-Nur.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec09_23301475_Syed-Maruf-Kabir.txt<p></p><pre>
+//Assignment Task 1
+
+def mostWater(arr):
+    max_area = 0
+    for left in range(len(arr)):
+        for right in range(left + 1, len(arr)):
+            height = 0
+<a name="3"></a><font color="#00FFFF"><a href="match76-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_9.gif"/></a>
+
+            if arr[left] &lt; arr[right]:
+                height = arr[left]
+            else:
+                height = arr[right]
+            width = right - left
+            area = height * width
+            if area &gt; max_area:
+                max_area = area
+</font>    print(max_area)
+
+
+<a name="4"></a><font color="#FF00FF"><a href="match76-0.html#4" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_5.gif"/></a>
+
+//Task2
+
+def row_rotation(exam_week, seat_status):
+    for week in range(exam_week - 1):
+        last_row = np.array(seat_status[len(seat_status) - 1],dtype=str)
+</font>
+<a name="1"></a><font color="#00FF00"><a href="match76-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_14.gif"/></a>
+
+        for row_idx in range(len(seat_status) - 2, -1, -1):
+            seat_status[row_idx + 1] = seat_status[row_idx]
+
+        seat_status[0] = last_row
+    print_chart(seat_status)
+
+    for row_idx in range(len(seat_status)):
+        for col_idx in range(len(seat_status[row_idx])):
+            if seat_status[row_idx][col_idx] == "AA":
+                return row_idx + 1
+
+def print_chart(chart):
+</font>    for row in chart:
+        print(row)
+
+
+//Task3
+
+def compress_matrix(mat):
+    compress_matrix = np.zeros((2, 2), dtype=int)
+    row_index = 0
+
+    for i in range(len(mat)):
+        col_index = 0
+        for j in range(0, len(mat[0]), 2):
+            compress_matrix[row_index//2][col_index] += mat[i][j]
+            compress_matrix[row_index//2][col_index] += mat[i][j + 1]
+            col_index += 1
+        row_index += 1
+
+    return compress_matrix
+
+
+//Task4
+
+<a name="2"></a><font color="#0000FF"><a href="match76-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_11.gif"/></a>
+
+def play_game(arena):
+    num_rows, num_cols = arena.shape
+    points = 0
+    for row in range(num_rows):
+        for col in range(num_cols):
+            if arena[row][col] % 50 == 0 and arena[row][col] != 0:
+                if row + 1 &lt; num_rows and arena[row + 1][col] == 2:
+</font>                    points += 2
+<a name="0"></a><font color="#FF0000"><a href="match76-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_15.gif"/></a>
+
+                if row - 1 &gt;= 0 and arena[row - 1][col] == 2:
+                    points += 2
+                if col + 1 &lt; num_cols and arena[row][col + 1] == 2:
+                    points += 2
+                if col - 1 &gt;= 0 and arena[row][col - 1] == 2:
+                    points += 2
+</font>    if points &lt; 10:
+        print(f'Points Gained: {points}. Your team is out.')
+    if points&gt;=10:
+        print(f'Points Gained: {points}. Your team has survived the game.')
+</pre>
+</body>
+</html>

@@ -1,0 +1,104 @@
+<html>
+<head>
+<title>A1_Sec05_24141023_Raad-Sarar-Khan.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec12_23201585_Fahim-Abrar.txt<p></p><pre>
+Assignment Task 1: Container with Most Water
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+<a name="2"></a><font color="#0000FF"><a href="match131-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_1.gif"/></a>
+
+def mostWater(arr):
+  left = 0
+  right= len(arr)-1
+  max = 0
+  while left &lt; right:
+    if arr[right] &gt; arr[left]:
+</font>      height = arr[left]
+      width = right - left
+      left +=1
+    else:
+      height = arr[right]
+      width = right - left
+      right -=1
+    
+    if height*width &gt; max:
+        max = height*width
+  return max
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment Task 2: Row Rotation Policy
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+def row_rotation(exam_week, seat_status):
+  row, col = seat_status.shape
+  number_of_shift = exam_week % row
+  new_arr = np.empty((row,col), dtype=object)
+
+  for i in range(row):
+    new_row = (i+number_of_shift) % row
+    for j in range(col):
+      new_arr[new_row][j] = seat_status[i][j]
+
+  # print the modified seat status
+  print_matrix(new_arr)
+
+  for a in range(row):
+    for b in range(col):
+      if new_arr[a][b] == 'AA':
+        return a
+
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment Task 3: Matrix Compressions
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+def compress_matrix(mat):
+  row, col = mat.shape
+<a name="1"></a><font color="#00FF00"><a href="match131-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_3.gif"/></a>
+
+  new_mat = np.zeros((row//2, col//2), dtype= int)
+
+  for i in range(0,row, 2):
+    for j in range(0, col, 2):
+      sum = mat[i][j]+ mat[i][j+1]+ mat[i+1][j] + mat[i+1][j+1]
+      new_mat[i//2][j//2] = sum
+
+  return new_mat
+</font>
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Assignment Task 4: Game Arena
+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+def play_game(arena):
+  row, col = arena.shape
+<a name="0"></a><font color="#FF0000"><a href="match131-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_6.gif"/></a>
+
+  total_points = 0
+
+  for i in range(row):
+    for j in range(col):
+      if arena[i][j] % 50 == 0 and arena[i][j] != 0:
+        point = 0
+
+        if i &gt; 0 and arena[i-1][j] == 2:
+          point +=2
+        
+        if i &lt; row-1  and arena[i+1][j] == 2:
+          point +=2
+        
+        if j &gt; 0 and arena[i][j-1] == 2:
+          point +=2
+        
+        if j&lt; col-1 and arena[i][j+1] ==2:
+          point += 2
+
+        total_points+= point
+</font>  
+  if total_points &gt;= 10:
+    print(f"Points Gained: {total_points}. Your team has survived the game. ")
+  else:
+    print(f"Points Gained: {total_points}. Your team is out.")</pre>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<html>
+<head>
+<title>A1_Sec08_23101049_Kazi-Arafat-Bin-Ibrahim.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec08_23101049_Kazi-Arafat-Bin-Ibrahim.txt<p></p><pre>
+#Task_1
+
+def mostWater(arr):
+
+    leftSide = 0  
+    rightSide = len(arr) - 1  
+    max_water = 0  
+
+    while leftSide &lt; rightSide:      
+        current_water = min(arr[leftSide], arr[rightSide]) * (rightSide - leftSide)
+      
+        if current_water &gt; max_water:
+            max_water = current_water
+       
+        elif arr[leftSide] &lt; arr[rightSide]:
+            leftSide += 1
+        else:
+            rightSide -= 1   
+    print(max_water)
+
+
+#Task_2
+
+def row_rotation(exam_week, seat_status):
+  
+   row, col = seat_status.shape
+   temp = np.zeros(col, dtype= object)
+
+   for i in range(exam_week-1):
+<a name="1"></a><font color="#00FF00"><a href="match30-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_26.gif"/></a>
+
+        for c in range(col):
+            temp[c] = seat_status[row-1][c] 
+                                            
+
+        for r in range(row-2, -1, -1): 
+		
+            for c in range(col):
+                seat_status[r+1][c] = seat_status[r][c] 
+
+        for c in range(col):
+            seat_status[0][c] = temp[c] 
+
+   print_matrix(seat_status)
+   for r in range(row):
+        for c in range(col):
+            if seat_status[r][c]== "AA":
+                return r+1
+</font>
+
+#Task_3
+
+<a name="0"></a><font color="#FF0000"><a href="match30-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_27.gif"/></a>
+
+def compress_matrix(mat):
+  #TO DO
+  row=mat.shape[0] 
+  col=mat.shape[1]
+  temp=np.zeros((row//2,col//2),dtype=int) 
+                                         
+  for i in range(0,row,2): 
+    for j in range(0,col,2):
+      sum=mat[i][j]+mat[i][j+1]+mat[i+1][j]+mat[i+1][j+1]
+      temp[i//2][j//2]=sum
+      sum=0 
+  return temp
+</font>
+
+#Task_4
+
+<a name="2"></a><font color="#0000FF"><a href="match30-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_18.gif"/></a>
+
+def play_game(arena):
+  row,col=arena.shape
+  points=0
+  for r in range(0,row):
+    for c in range(0,col):
+     if arena[r][c]%50==0:
+      for i in range(r-1, r+2):
+        if i==2:
+          points+=2
+  if points &gt; 10:
+        print(f'Points Gained: {points}. Your team has survived the game.')
+  else:
+        print(f'Points Gained: {points}. Your team is out.')
+</font></pre>
+</body>
+</html>

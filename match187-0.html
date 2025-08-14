@@ -1,0 +1,313 @@
+<html>
+<head>
+<title>A1_Sec11_22299386_Tabassum-Islam-Masratul.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec11_22299386_Tabassum-Islam-Masratul.txt<p></p><pre>
+﻿#Task 01 :
+
+
+
+
+
+
+import numpy as np
+
+
+def mostWater(height):
+
+
+    highest_water = 0
+    for i in range(len(height)):  # i from 0 to 8
+        for j in range(i + 1, len(height)):  # j from i+1 to 8
+            width = j - i
+            if height[i] &lt;= height[j]:
+                multiplication = height[i] * width
+            else:
+                multiplication = height[j] * width
+
+
+            if multiplication &gt; highest_water:
+                highest_water = multiplication
+
+
+    return int(highest_water)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#task 2
+
+
+# Task 02: Row Rotation Policy of BRACU Classroom
+
+
+
+
+
+
+
+
+def row_rotation(exam_week, seat_status):
+  #To Do
+  AA_row_num = 0
+  rotation_num = exam_week -1
+  new_seat_status = 0
+
+
+
+
+  #first find the row position of AA
+  for i in range (len(seat_status)) : #0 to 5
+    for j in range (len(seat_status[1])) :
+      if seat_status[i][j] == "AA" : 
+   #let’s assume there is only one student named AA
+        AA_row_num = i #5
+       
+
+
+  check = len(seat_status) - 1 #5
+  if  rotation_num + AA_row_num &gt; check : #2+5 = 7 &gt; 5
+       #kototuk beshi lagbey
+          steppp = check - AA_row_num #5-5 = 0
+          new_seat_status = rotation_num - steppp #2-0
+  else :
+      new_seat_status = rotation_num + AA_row_num
+
+
+
+
+  return new_seat_status
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Task 3: Matrix Compressions
+
+
+
+
+
+
+
+
+
+
+import numpy as np
+
+
+def compress_matrix(mat):
+
+
+  row , col = len(mat)//2 , len(mat[0])//2
+  compressed_array = np.zeros((row,col) , dtype =int)
+
+
+  #first length of array = L . now, if i and j both %2 == 0 , loop should work.
+  summation = 0
+  for i in range (0,len(mat),2) :
+     for j in range (0,len(mat[0]),2)  : #0,2,4
+             summation = mat [i][j] + mat [i+1][j] +  mat [i][j+1] +  mat [i+1][j+1]
+             compressed_array[i//2][j//2] = summation #0,0 0,1 0,2
+
+
+  return compressed_array
+
+
+def print_matrix(mat) :
+ for i in range (len(mat)) :
+   print("|", "  |  ".join(str(mat[i][j]).rjust(2) for j in  range(len(mat[0]))), "|")
+   print("-" * int(len(mat[0]) * 5.5 + 3))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Task 4: Game Arena
+
+
+import numpy as np
+
+
+def print_matrix(mat):
+    for i in range(len(mat)):
+        print("|", "  |  ".join(str(mat[i][j]).rjust(3) for j in range(len(mat[0]))), "|")
+        print("-" * int(len(mat[0]) * 6))
+
+
+
+
+def play_game(arena):
+    survival_point = 0
+
+
+    for i in range(len(arena)):
+        for j in range(len(arena[0])):
+
+
+            if arena[i][j] % 50 == 0 and arena[i][j] != 0:
+               
+                # middle area (has all 4 sides)
+                if len(arena) - 1 &gt; i &gt; 0 and len(arena[0]) - 1 &gt; j &gt; 0:
+<a name="2"></a><font color="#0000FF"><a href="match187-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_3.gif"/></a>
+
+                    if arena[i-1][j] == 2:
+                        survival_point += 2
+                    if arena[i+1][j] == 2:
+                        survival_point += 2
+                    if arena[i][j-1] == 2:
+</font><a name="4"></a><font color="#FF00FF"><a href="match187-1.html#4" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_2.gif"/></a>
+
+                        survival_point += 2
+                    if arena[i][j+1] == 2:
+                        survival_point += 2
+</font>
+
+                # corner cases
+<a name="1"></a><font color="#00FF00"><a href="match187-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_3.gif"/></a>
+
+                elif i == 0 and j == 0:
+                    if arena[i+1][j] == 2:
+                        survival_point += 2
+                    if arena[i][j+1] == 2:
+                        survival_point += 2
+</font>
+
+<a name="0"></a><font color="#FF0000"><a href="match187-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_3.gif"/></a>
+
+                elif i == 0 and j == len(arena[0]) - 1:
+                    if arena[i+1][j] == 2:
+                        survival_point += 2
+                    if arena[i][j-1] == 2:
+                        survival_point += 2
+
+
+                elif i == len(arena) - 1 and j == 0:
+</font><a name="3"></a><font color="#00FFFF"><a href="match187-1.html#3" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_3.gif"/></a>
+
+                    if arena[i-1][j] == 2:
+                        survival_point += 2
+                    if arena[i][j+1] == 2:
+                        survival_point += 2
+</font>
+
+<a name="5"></a><font color="#FF0000"><a href="match187-1.html#5" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_2.gif"/></a>
+
+                elif i == len(arena) - 1 and j == len(arena[0]) - 1:
+                    if arena[i-1][j] == 2:
+                        survival_point += 2
+                    if arena[i][j-1] == 2:
+</font>                        survival_point += 2
+
+
+                # edge cases (non-corner)
+                else:
+                    if i == 0:
+                        if i+1 &lt; len(arena) and arena[i+1][j] == 2:
+                            survival_point += 2
+                        if j &gt; 0 and arena[i][j-1] == 2:
+                            survival_point += 2
+                        if j+1 &lt; len(arena[0]) and arena[i][j+1] == 2:
+                            survival_point += 2
+
+
+                    elif i == len(arena) - 1:
+                        if arena[i-1][j] == 2:
+                            survival_point += 2
+                        if j &gt; 0 and arena[i][j-1] == 2:
+                            survival_point += 2
+                        if j+1 &lt; len(arena[0]) and arena[i][j+1] == 2:
+                            survival_point += 2
+
+
+                    elif j == 0:
+                        if arena[i-1][j] == 2:
+                            survival_point += 2
+<a name="6"></a><font color="#00FF00"><a href="match187-1.html#6" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_2.gif"/></a>
+
+                        if arena[i+1][j] == 2:
+                            survival_point += 2
+                        if arena[i][j+1] == 2:
+                            survival_point += 2
+</font>
+
+                    elif j == len(arena[0]) - 1:
+                        if arena[i-1][j] == 2:
+                            survival_point += 2
+                        if arena[i+1][j] == 2:
+                            survival_point += 2
+                        if arena[i][j-1] == 2:
+                            survival_point += 2
+
+
+    print(f"Points Gained: {survival_point}.", end=" ")
+    if survival_point &gt;= 10:
+        print("Your team has survived the game.")
+    else:
+        print("Your team is out.")</pre>
+</body>
+</html>

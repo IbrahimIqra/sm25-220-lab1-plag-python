@@ -1,0 +1,135 @@
+<html>
+<head>
+<title>A1_Sec27_24101676_Sanjida-Akter.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec27_24101676_Sanjida-Akter.txt<p></p><pre>
+#Task 1
+<a name="2"></a><font color="#0000FF"><a href="match162-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_6.gif"/></a>
+
+def max_water(height):
+    left = 0
+    right = len(height) - 1
+    max_area = 0
+
+    while left &lt; right:
+        width = right - left
+        area = min(height[left], height[right]) * width
+</font>        if area &gt; max_area:
+            max_area = area
+        if height[left] &lt; height[right]:
+            left += 1
+        else:
+            right -= 1
+
+    return max_area
+heights = [1, 8, 6, 2, 5, 4, 8, 3, 7]
+print(max_water(heights))
+
+
+#Task-2
+def row_rotation(w, seat_status):
+    shift = w - 1
+
+    for _ in range(shift):
+        last = seat_status[-1]
+        for i in range(len(seat_status)-1, 0, -1):
+            seat_status[i] = seat_status[i-1]
+        seat_status[0] = last
+
+    for r in seat_status:
+        print(" ", end=" ")
+        for val in r:
+            print(val, end="  ")
+        print()
+
+    for idx in range(len(seat_status)):
+        if "AA" in seat_status[idx]:
+            print(f"\nYour friend AA will be on row {idx}")
+            break
+
+w = 3
+seat_status = [
+    ["A", "B", "C", "D", "E"],
+    ["F", "G", "H", "I", "J"],
+    ["K", "L", "M", "N", "O"],
+    ["P", "Q", "R", "S", "T"],
+    ["U", "V", "W", "X", "Y"],
+    ["Z", "AA", "BB", "CC", "DD"]
+]
+
+row_rotation(w, seat_status)
+#Task -3
+def compress_matrix(mat):
+    rows = len(mat)
+    cols = len(mat[0])
+    compressed = []
+
+    for p in range(0, rows, 2):
+<a name="1"></a><font color="#00FF00"><a href="match162-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_9.gif"/></a>
+
+        row_sum = []
+        for j in range(0, cols, 2):
+            total = (
+                mat[p][j] + mat[p][j+1] +
+                mat[p+1][j] + mat[p+1][j+1]
+            )
+            row_sum.append(total)
+</font>        compressed.append(row_sum)
+
+    return compressed
+
+matrix = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [1, 3, 5, 2],
+    [-2, 0, 6, -3]
+]
+
+result = compress_matrix(matrix)
+print("Compressed Matrix:")
+for r in result:
+    print(r)
+#Task -4
+def check_survival(arena):
+    rows = len(arena)
+    cols = len(arena[0])
+<a name="0"></a><font color="#FF0000"><a href="match162-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_24.gif"/></a>
+
+    total_points = 0
+
+    for p in range(rows):
+        for j in range(cols):
+            if arena[p][j] % 50 == 0 and arena[p][j] != 0:
+               
+                if p - 1 &gt;= 0 and arena[i - 1][j] == 2:
+                    total_points += 2
+                
+                if p + 1 &lt; rows and arena[p + 1][j] == 2:
+                    total_points += 2
+               
+                if j - 1 &gt;= 0 and arena[p][j - 1] == 2:
+                    total_points += 2
+               
+                if j + 1 &lt; cols and arena[p][j + 1] == 2:
+                    total_points += 2
+
+    if total_points &gt;= 10:
+        print("Survived")
+</font>    else:
+        print("Banished")
+
+arena = [
+    [50, 2, 0],
+    [1, 2, 100],
+    [2, 0, 2]
+]
+
+check_survival(arena)
+
+
+
+</pre>
+</body>
+</html>

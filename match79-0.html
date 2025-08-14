@@ -1,0 +1,127 @@
+<html>
+<head>
+<title>A1_Sec01_21201006_marium-Akter-Isma.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec01_21201006_marium-Akter-Isma.txt<p></p><pre>
+task1
+
+import numpy as np
+def mostWater(arr):
+  maxCap=0
+
+  p1=0
+  p2=len(arr)-1
+
+  while p1&lt;p2:
+
+
+    if arr[p1]&lt;arr[p2]:
+      smaller_h=arr[p1]
+    else:
+      smaller_h=arr[p2]
+    w=p2-p1
+    possible_cap=smaller_h*w
+
+    if possible_cap &gt; maxCap:
+     maxCap = possible_cap
+
+    if arr[p1] &lt; arr[p2]:
+      p1 += 1
+    else:
+      p2 -= 1
+  #return np.array(maxCap)
+  print(maxCap)
+
+
+
+task2
+
+
+import numpy as np
+def row_rotation(exam_week, seat_status):
+  #To Do
+  exam_week -= 1
+  #row, col = seat_status.shape
+  r = len(seat_status)
+  c = len(seat_status[0])
+<a name="2"></a><font color="#0000FF"><a href="match79-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_8.gif"/></a>
+
+  seat = 0
+
+
+
+  for i in range(r):
+    for j in range(c):
+      if seat_status[i][j] == 'AA':
+        seat = i
+        break
+
+  # print(seat)
+
+  seat = (seat + exam_week) % (r - 1)
+  # print(seat)
+  arr = np.full((r,c), None)
+</font>  # print(arr)
+
+  for i in range(r):
+    for j in range(c):
+      arr[(i + exam_week) % r][j] = seat_status[i][j]
+
+
+  print (np.array(arr))
+
+  return seat
+
+task3
+
+<a name="1"></a><font color="#00FF00"><a href="match79-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_10.gif"/></a>
+
+import numpy as np
+def compress_matrix(mat):
+     r, c = mat.shape
+
+     arr = np.zeros((r//2,c//2), dtype="int")
+    #print(arr)
+     first = 0
+     second = 0
+     for i in range(0,r,2):
+      for j in range(0,c,2):
+        count = 0
+</font>        for total in range(j, j+2):
+          count += mat[i][total]
+          count += mat[i+1][total]
+          #count = mat[i][total] + mat[i+1][total] ebhabe likhle man alada ashe keno!
+        arr[first][second] = count
+        second +=1
+      second = 0
+      first += 1
+     return arr
+
+task4
+
+
+<a name="0"></a><font color="#FF0000"><a href="match79-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_32.gif"/></a>
+
+def play_game(arena):
+  r, c = arena.shape
+  totalPoints = 0
+
+  for i in range(r):
+    for j in range(c):
+      if (arena[i][j] % 50 == 0) and (arena[i][j] != 0):
+        count = 0
+        if 0 &lt;= i-1 &lt; r and arena[i - 1][j] == 2:
+          count += 1
+        if 0 &lt;= i+1 &lt; r and arena[i + 1][j] == 2:
+          count += 1
+        if 0 &lt;= j-1 &lt; c and arena[i][j-1] == 2:
+          count += 1
+        if 0 &lt;= j+1 &lt; c and arena[i][j+1] == 2:
+          count += 1
+
+        totalPoints += count * 2
+</font>        # print(total_points)</pre>
+</body>
+</html>

@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>A1_Sec28_22301324_Shamarpa-Islam-Neesa.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec28_22301324_Shamarpa-Islam-Neesa.txt<p></p><pre>
+﻿Assignment Task-1
+
+
+def mostWater(arr):
+  #To Do
+  l = 0
+  r = len(arr)-1
+  max = 0
+  while l&lt;r:
+    x= arr[l]
+    y = arr [r]
+    if x&lt;y:
+      height = x
+    else:
+      height = y
+      width = x-y
+      curr = height*width
+      if curr &gt; max:
+        max = curr
+      if x &lt; y:
+        l += 1
+      else:
+        r -=1
+
+
+
+
+
+
+
+
+Task - 2
+def row_rotation(exam_week, seat_status):
+  #To Do
+  row = len(seat_status)
+  col = len(seat_status[0])
+<a name="2"></a><font color="#0000FF"><a href="match12-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_16.gif"/></a>
+
+  row_num = -1
+  for r in range(row):
+    if seat_status[r][0] == 'z':
+        break
+    else:
+        row_num += 1
+
+
+  for k in range(exam_week -1):
+    temp = np.array(['']*col, dtype = object)
+    for i in range(col):
+      temp[i] = seat_status[row-1][i]
+
+
+    for i in range(row-1,0,-1):
+      seat_status[i] = seat_status[i-1]
+    seat_status[0] = temp
+</font>
+
+  for row in seat_status:
+    print(row)
+  return row_num
+
+
+
+
+
+
+Task - 3
+
+
+def compress_matrix(mat):
+  #TO DO
+  row = len(mat)
+  col = len(mat[0])
+  new_arr = []
+  for i in [0] * (row // 2):
+    row = [0] * (col // 2)
+    new_arr += row
+    length = (row // 2 + col // 2)
+    temp = [0] * length
+
+
+<a name="1"></a><font color="#00FF00"><a href="match12-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_17.gif"/></a>
+
+    for r in range(0,row, 2):
+        for c in range(0,col, 2):
+            temp[t] = mat[r][c] + mat[r+1][c] + mat[r][c+1] + mat[r+1][c+1]
+            t += 1
+    idx = 0
+    for r in range(row//2):
+        for c in range(col//2):
+            new_arr[r][c] = temp[idx]
+            idx += 1
+</font>    return new_arr
+
+
+
+
+
+
+Task - 4
+
+
+def play_game(arena):
+  #TO DO
+  row = len(arena)  
+  col = len(arena[0])
+<a name="0"></a><font color="#FF0000"><a href="match12-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_22.gif"/></a>
+
+  tot = 0
+  for r in range(row):
+    for c in range(col):
+      if arena[r][c] % 50 == 0 and arena[r][c] != 0:
+        if c + 1 &lt; col and arena[r][c+1] == 2:
+            tot += 1
+        if c -1 &gt;=0 and arena[r][c-1] == 2:
+            tot += 1
+        if r +1 &lt; row and arena[r+1][c] == 2:
+            tot += 1
+        if r -1 &gt;= 0 and arena[r-1][c] == 2:
+            tot += 1
+</font>  points = tot * 2
+  if points &gt;= 10:
+    print(f"Points Gained:{points} Your team has survived the game")
+  else:
+    print(f"Points Gained: {points} Your team is out")</pre>
+</body>
+</html>

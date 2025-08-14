@@ -1,0 +1,93 @@
+<html>
+<head>
+<title>A1_Sec25_23301491_Farhan-Shefat.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec25_23301491_Farhan-Shefat.txt<p></p><pre>
+#task1
+<a name="2"></a><font color="#0000FF"><a href="match171-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+def mostWater(arr):
+    l=0
+    r=len(arr)-1
+    max=0
+    while l&lt;r:
+        if arr[l]&lt;arr[r]:
+            hei=arr[l]
+</font>        else:
+            hei=arr[r]
+        wid=r-l
+        area=hei*wid
+        if area&gt;max:
+            max=area
+        elif arr[l]&lt;arr[r]:
+            l+=1
+        else:
+            r-=1
+    print(max)
+
+#task2
+def row_rotation(exam_week, seat_status):
+    ro=seat_status.shape[0]
+    co=seat_status.shape[1]
+    idx=0
+    for i in range(ro):
+        if "AA" in seat_status[i]:
+            idx=i
+            break
+    rot=(exam_week-1)%ro
+    for i in range(rot):
+        lst_ro=seat_status[-1]
+        for k in range(ro-1,0,-1):
+            seat_status[k]=seat_status[k-1]
+        seat_status[0]=lst_ro 
+    newidx=(idx+rot)%ro
+    print_matrix(seat_status)
+    return newidx+1  
+
+#task3
+def compress_matrix(mat):
+ ro= len(mat)
+ co=len(mat[1])
+ comrow=(ro//2)
+ comcol=(co//2)
+ arr1=np.zeros((comcol,comrow),int)
+ idx=0
+ for i in range(0,ro,2):
+  count=0
+  total=0
+<a name="1"></a><font color="#00FF00"><a href="match171-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_10.gif"/></a>
+
+  for j in range(0,co,2):
+    total=mat[i][j]+mat[i][j+1]+mat[i+1][j]+mat[i+1][j+1]
+    arr1[idx][count]=total
+</font>    total=0
+    count+=1
+  idx+=1
+ return arr1
+
+#task4
+def play_game(arena):
+    ro=len(arena)
+    co=len(arena[0])
+    totpoint=0
+<a name="0"></a><font color="#FF0000"><a href="match171-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_27.gif"/></a>
+
+    for i in range(ro):
+      for j in range(co):
+          if arena[i][j]%50==0 and arena[i][j]!=0: 
+              if i&gt;0 and arena[i-1][j]==2:
+                    totpoint+=2
+              if i&lt;ro-1 and arena[i+1][j]==2:
+                    totpoint+=2
+              if j&gt;0 and arena[i][j-1]==2:
+                    totpoint+=2
+              if j&lt;co-1 and arena[i][j+1]==2:
+                    totpoint+=2
+    if totpoint&gt;=10:
+        print(f"Points Gained: {totpoint}.your team has survived the game.")
+    else:
+        print(f"Points Gained: {totpoint}.your team is out.")</font></pre>
+</body>
+</html>

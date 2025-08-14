@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>A1_Sec26_24141155_MD-ABRAR-MAHIB-PRITOM.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec26_24141155_MD-ABRAR-MAHIB-PRITOM.txt<p></p><pre>
+﻿Task 1
+<a name="1"></a><font color="#00FF00"><a href="match17-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_20.gif"/></a>
+
+def mostWater(arr):
+  # To Do
+  left_pos = 0
+  right_pos = len(arr) - 1
+  total_area = 0
+
+
+  while left_pos &lt; right_pos:
+    if arr[left_pos] &lt; arr[right_pos]:
+      height = arr[left_pos]
+    else:
+      height = arr[right_pos]
+    width = right_pos - left_pos
+    areas = height * width
+    if areas &gt; total_area:
+      total_area = areas
+    if arr[left_pos] &lt; arr[right_pos]:
+      left_pos += 1
+    else:
+      right_pos -= 1
+  print(total_area)
+
+
+
+
+
+
+                Task 2
+def row_rotation(exam_week, seat_status):
+    #To Do
+    number_row = len(seat_status)
+    number_colomn = len(seat_status[0])
+</font>    number_rotate = exam_week - 1
+
+
+    for i in range(number_rotate):
+<a name="2"></a><font color="#0000FF"><a href="match17-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_20.gif"/></a>
+
+        tmp = [None] * number_colomn
+        for j in range(number_colomn):
+            tmp[j] = seat_status[number_row - 1][j]
+        for i in range(number_row - 1, 0, -1):
+            for j in range(number_colomn):
+                seat_status[i][j] = seat_status[i - 1][j]
+        for j in range(number_colomn):
+            seat_status[0][j] = tmp[j]
+    print_matrix(seat_status)
+    for i in range(number_row):
+        for j in range(number_colomn):
+            if seat_status[i][j] == 'AA':
+</font>                return i
+
+
+
+
+              Task 3
+<a name="0"></a><font color="#FF0000"><a href="match17-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_21.gif"/></a>
+
+def compress_matrix(mat):
+  #TO DO
+  rows = len(mat)
+  colomn = len(mat[0])
+  new_rows = rows // 2
+  new_colomn = colomn // 2
+  zip = np.zeros((new_rows, new_colomn), dtype=int)
+  for i in range(0, rows, 2):
+      for j in range(0, colomn, 2):
+          block_sum = (
+              mat[i][j] +
+              mat[i][j+1] +
+              mat[i+1][j] +
+              mat[i+1][j+1]
+              )
+          zip[i//2][j//2] = block_sum
+  return zip
+</font>
+
+
+
+              Task 4
+def play_game(arena):
+  points = 0
+  rows = len(arena)
+  colomn = len(arena[0])
+  directions = [(-1, 0), (1, 0), (0, -1), (0, 1)]
+  for i in range(rows):
+    for j in range(colomn):
+      if arena[i][j] != 0 and arena[i][j] % 50 == 0:
+        for axis in directions:
+          x = axis[0]
+          y = axis[1]
+          p = i + x
+          k = j + y
+          if p &gt;= 0 and p &lt; rows and k &gt;= 0 and k &lt; colomn:
+            if arena[p][k] == 2:
+              points += 2
+  if points &gt;= 10:
+    print(f"Points Gained: {points}. Your team has survived the game.")
+  else:
+    print(f"Points Gained: {points}. Your team is out.")</pre>
+</body>
+</html>

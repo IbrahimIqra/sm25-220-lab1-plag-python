@@ -1,0 +1,173 @@
+<html>
+<head>
+<title>A1_Sec01_21201006_marium-Akter-Isma.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec21_22101931_Halimaya-Sadia.txt<p></p><pre>
+﻿Assignment Task 1: Container with Most Water 
+def mostWater(arr):
+  #To Do
+  #No need to return anything just print the output inside the function
+  i=0
+  j=len(arr)-1
+  area=0
+  while i&lt;j:
+    distance = j-i
+    if arr[i]&lt;arr[j]:
+      new_area= arr[i]*distance
+      if new_area&gt;area:
+        area=new_area
+      new_area=0
+    else:
+      new_area= arr[j]*distance
+      if new_area&gt;area:
+        area=new_area
+      new_area=0
+
+
+    if arr[i] &lt; arr[j]:
+            i += 1
+    else:
+            j -= 1
+
+
+  print(area)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Assignment Task 2: Row Rotation Policy
+# Row Rotation Policy of BRACU Classroom
+def row_rotation(exam_week, seat_status):
+  #To Do
+  row,col = seat_status.shape
+<a name="2"></a><font color="#0000FF"><a href="match79-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+  e_week= exam_week -1
+  for r in range(row):
+   for c in range(col):
+      if seat_status[r][c] == 'AA':
+        seat = r
+        break
+  seat = (e_week+ seat) % (row-1)
+  updated_seat_status = np.empty_like(seat_status)
+</font>  for r in range(row):
+    for c in range(col):
+      row_new= (r + exam_week) % row
+      updated_seat_status[row_new][c] = seat_status[r][c] #seat rotation
+  print(updated_seat_status)
+  return seat
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a name="1"></a><font color="#00FF00"><a href="match79-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_9.gif"/></a>
+
+Assignment Task 3: Matrix Compressions 
+
+
+def compress_matrix(mat):
+    #TO DO
+    r,c = mat.shape
+    new_arr = np.zeros((r//2,c//2), dtype="int")
+    row= 0
+    col = 0
+
+
+    for i in range(0,r,2):
+      for j in range(0,c,2):
+
+
+        sum = mat[i][j] + mat[i][j+1] + mat[i+1][j] + mat[i+1][j+1]
+</font>        new_arr[row][col] = sum
+
+
+        col +=1
+
+
+      col = 0
+      row += 1
+
+
+    return new_arr
+
+
+
+
+
+
+Assignment Task 4: Game Arena
+
+
+<a name="0"></a><font color="#FF0000"><a href="match79-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_30.gif"/></a>
+
+def play_game(arena):
+  #TO DO
+  row,col = arena.shape
+  points = 0
+
+
+  for i in range(row):
+    for j in range(col):
+ 
+      if (arena[i][j] % 50 == 0) and (arena[i][j] != 0):
+        count = 0
+
+
+        if 0 &lt;= i-1 &lt; row and arena[i - 1][j] == 2:
+          count += 1
+
+
+        if 0 &lt;= i+1 &lt; row and arena[i + 1][j] == 2:
+          count += 1
+
+
+        if 0 &lt;= j-1 &lt; col and arena[i][j-1] == 2:
+          count += 1
+
+
+        if 0 &lt;= j+1 &lt; col and arena[i][j+1] == 2:
+          count += 1
+
+
+        points += count * 2
+</font>     
+  if points &gt;= 10:
+      print(f"Points Gained: {points}. Your team has survived the game.")
+  else:
+      print(f"Points Gained: {points}. Your team is out.")</pre>
+</body>
+</html>

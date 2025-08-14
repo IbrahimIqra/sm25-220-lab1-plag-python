@@ -1,0 +1,148 @@
+<html>
+<head>
+<title>A1_Sec28_24241230_Mobinur-Rahman-Nabil.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec04_23301510_ADIB-ANWAR.txt<p></p><pre>
+﻿Assignment Task 1 : 
+
+
+import numpy as np
+def mostWater(arr):
+  max=0
+  x=len(arr)
+  for i in range(0,x):
+    for j in range(i+1,x):
+<a name="3"></a><font color="#00FFFF"><a href="match147-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_6.gif"/></a>
+
+      if arr[i] &lt; arr[j]:
+        h=arr[i]
+      else :
+        h= arr[j]
+      w = j-i 
+      area= h*w
+      if area&gt;max:
+</font>        max=area 
+  print(max)   
+
+
+
+
+
+
+Assignment Task 2 : 
+
+
+import numpy as np
+def row_rotation(exam_week, seat_status):
+  seat_status= seat_status.tolist()  #searched in google and it showed .tolist() is the easiest to convert NumPy array into a nested Python list
+
+
+  rotation= (int(exam_week)- 1 ) #if week 1 than no rotaion, week2 then 1 rotaion
+  
+  for i in range(rotation): #new matrix after rotations 
+                            #(faced problem when updating that's why I used pop and insert cause it seems easy and short)
+     lastrow= seat_status.pop() 
+     seat_status.insert(0,lastrow)
+
+
+  row_number=0
+  for row in seat_status:
+    if "AA" in row :
+      row_number+=1
+      break
+    row_number+=1
+  return row_number
+
+
+def print_matrix(mat):
+    for row in mat:
+     print("|",end=" ") 
+     for i in row:
+       print(i, end=" | ") 
+     print(end="\n")
+
+
+
+
+
+
+
+
+Assignment Task 3 : 
+
+
+<a name="0"></a><font color="#FF0000"><a href="match147-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_20.gif"/></a>
+
+import numpy as np
+def compress_matrix(mat):
+  row=len(mat)
+  coloumn=len(mat[0])
+  compressed_row= row//2
+  compressed_coloumn= coloumn//2
+  new_matrix= np.zeros((compressed_row,compressed_coloumn), dtype=int)
+  for i in range(0,row,2):
+    for j in range(0,coloumn,2):
+      sum= mat[i][j]+mat[i][j+1]+mat[i+1][j]+mat[i+1][j+1]
+      new_matrix[i//2][j//2]=sum
+  return new_matrix
+def print_matrix(mat):
+</font>  for row in mat:
+    print("|",end=" ")
+    for i in range(len(row)):
+      print(row[i],end=" | ")
+    print("\n------------------\n") #copied from given code below in template
+
+
+
+
+
+
+
+
+
+
+ Assignment Task 4 : 
+
+
+import numpy as np
+
+
+def play_game(arena):
+  row= len(arena)
+  coloumn= len(arena[0])
+  point=0
+  for i in range(0,row):
+    for j in range(0, coloumn):
+      cell=arena[i][j]
+      if cell%50==0 and cell!=0 : #cause 0 is also a multiple of 50,so I added it.
+         
+<a name="2"></a><font color="#0000FF"><a href="match147-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+         if i-1&gt;=0 and arena[i-1][j]==2 : #Up (keepin track)
+          point+=2
+         if i+1&lt;row and arena[i+1][j]==2 : #Down
+          point+=2
+</font><a name="1"></a><font color="#00FF00"><a href="match147-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_7.gif"/></a>
+
+         if j-1&gt;=0 and arena[i][j-1]==2 : #Left
+          point+= 2 
+         if j+1&lt;coloumn and arena[i][j+1]==2 : #Right
+          point+=2
+  if point&gt;=10 :
+</font>    print(f"Points Gained: {point}. Your team has survived the game.")
+  else :
+    print(f"Points Gained: {point}. Your team is out.")
+
+
+
+
+def print_matrix(mat):
+  for row in mat:
+    print("|",end=" ")
+    for i in range(len(row)):
+      print(row[i],end=" | ")
+    print("\n------------------\n") #copied from given code below in template</pre>
+</body>
+</html>

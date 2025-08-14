@@ -1,0 +1,161 @@
+<html>
+<head>
+<title>A1_Sec06_24301565_Shakib-Ahmed-Khan.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec06_24301565_Shakib-Ahmed-Khan.txt<p></p><pre>
+﻿Lab Task-01
+import numpy as np
+
+
+def mostWater(arr):
+  import numpy as np
+
+
+<a name="2"></a><font color="#0000FF"><a href="match93-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_5.gif"/></a>
+
+def mostWater(height):
+    lft = 0
+    rgt = len(height) - 1
+    max_area = 0
+
+
+    while lft &lt; rgt:
+       
+        h = min(height[lft], height[rgt])
+        w = rgt - lft
+</font><a name="3"></a><font color="#00FFFF"><a href="match93-1.html#3" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_5.gif"/></a>
+
+        area = h * w
+        max_area = max(max_area, area)
+
+
+        if height[lft] &lt; height[rgt]:
+            lft += 1
+        else:
+            rgt -= 1
+
+
+    print(max_area)
+
+
+Lab Task-02
+</font>import numpy as np
+def print_matrix(matrix):
+    for row in matrix:
+        print('| ' + ' | '.join(cell.center(2) for cell in row) + ' |')
+
+
+def row_rotation(exam_week, seat_status):
+   
+    seat_rotation = [list(row) for row in seat_status]
+   
+   
+    for i in range(exam_week - 1):
+       
+        lst_row = seat_rotation[-1]
+        seat_rotation = [lst_row] + seat_rotation[:-1]
+   
+   
+    print_matrix(seat_rotation)
+    print()
+   
+   
+    curr_row = 1  
+    for row in seat_rotation:
+        find = False
+        for cell in row:
+            if cell == "AA":
+                find = True
+                break
+        if find:
+            return curr_row
+        curr_row += 1
+    return -1
+
+
+
+
+
+
+
+
+Lab Task-03
+def print_matrix(matrix):
+    for j in matrix:
+        line = "|"
+        for cell in j:
+            line += f"  {cell}  |"
+        print(line)
+        print("-" * (len(j) * 6 - 1))
+
+
+def compress_matrix(mat):
+    row_no = len(mat)
+    col_no = len(mat[0]) if row_no &gt; 0 else 0
+    compressed = []
+   
+   
+    for i in range(0, row_no, 2):
+        compressed_row = []
+<a name="1"></a><font color="#00FF00"><a href="match93-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_9.gif"/></a>
+
+        for k in range(0, col_no, 2):
+           
+            total = mat[i][k] + mat[i][k+1] + mat[i+1][k] + mat[i+1][k+1]
+            compressed_row.append(total)
+</font>        compressed.append(compressed_row)
+   
+    return compressed
+
+
+
+
+Lab Task-04
+
+
+def print_matrix(matrix):
+    for rw in matrix:
+        line = "|"
+        for c in rw:
+            line += f"  {c}  |"
+        print(line)
+        print("-" * (len(rw) * 6 - 1))
+
+
+def play_game(arena):
+    totl_pts = 0
+    row_no = len(arena)
+    if row_no == 0:
+        print("Points Gained: 0. Your team is out.")
+        return
+   
+    col_no = len(arena[0])
+   
+<a name="0"></a><font color="#FF0000"><a href="match93-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_23.gif"/></a>
+
+    for i in range(row_no):
+        for j in range(col_no):
+            if arena[i][j] % 50 == 0 and arena[i][j] != 0:  
+                pts = 0
+               
+                if i &gt; 0 and arena[i-1][j] == 2:
+                    pts += 1
+               
+                if i &lt; row_no - 1 and arena[i+1][j] == 2:
+                    pts += 1
+               
+                if j &gt; 0 and arena[i][j-1] == 2:
+                    pts += 1
+               
+                if j &lt; col_no - 1 and arena[i][j+1] == 2:
+                    pts += 1
+                totl_pts += pts * 2  
+</font>   
+    if totl_pts &gt;= 10:
+        print(f"Points Gained: {totl_pts}. Your team has survived the game.")
+    else:
+        print(f"Points Gained: {totl_pts}. Your team is out.")</pre>
+</body>
+</html>

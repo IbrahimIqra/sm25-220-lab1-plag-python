@@ -1,0 +1,100 @@
+<html>
+<head>
+<title>A1_Sec19_22201661_S.-M.-Raihan-Khaled.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec19_23101487_ANJAMUL-AREFIN-ASHIK.txt<p></p><pre>
+#task 1
+<a name="1"></a><font color="#00FF00"><a href="match210-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_18.gif"/></a>
+
+def row_rotation(exam_week, seat_layout):
+    rotations_needed = exam_week - 1
+    num_rows, num_cols = seat_layout.shape
+    aa_position = 0
+
+    current_rotation = 0
+    while current_rotation &lt; rotations_needed:
+        col = 0
+        while col &lt; num_cols:
+            bottom_value = seat_layout[num_rows - 1][col]
+            row = num_rows - 1
+
+            while row &gt; 0:
+                seat_layout[row][col] = seat_layout[row - 1][col]
+</font>                               if seat_layout[row][col] == "AA":
+                    aa_position = row
+                row -= 1
+
+            seat_layout[0][col] = bottom_value
+            col += 1
+
+        current_rotation += 1
+
+    print(seat_layout)
+<a name="0"></a><font color="#FF0000"><a href="match210-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_25.gif"/></a>
+
+    return aa_position + 1  # 1-based index
+
+#task2
+def compress_matrix(input_matrix):
+    rows, cols = input_matrix.shape
+    half_rows, half_cols = rows // 2, cols // 2
+    result_matrix = np.zeros((half_rows, half_cols), dtype=int)
+
+    row_index = 0
+    new_r = 0
+
+    while row_index &lt; rows:
+        col_index = 0
+        new_c = 0
+
+        while col_index &lt; cols:
+            
+            current_sum = (
+                input_matrix[row_index][col_index] +
+                input_matrix[row_index + 1][col_index] +
+                input_matrix[row_index][col_index + 1] +
+                input_matrix[row_index + 1][col_index + 1]
+            )
+
+            result_matrix[new_r][new_c] = current_sum
+</font>            new_c += 1
+            col_index += 2
+
+        new_r += 1
+        row_index += 2
+
+    return result_matrix
+
+#task3
+<a name="2"></a><font color="#0000FF"><a href="match210-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_9.gif"/></a>
+
+def play_game(game_board):
+    rows, cols = game_board.shape
+    points = 0
+
+    r = 0
+    while r &lt; rows:
+        c = 0
+        while c &lt; cols:
+            cell = game_board[r][c]
+
+                       if not cell % 50 and cell &gt;= 50:
+</font>
+                
+                above = (r &gt; 0 and game_board[r - 1][c] == 2)
+                below = (r &lt; rows - 1 and game_board[r + 1][c] == 2)
+                left = (c &gt; 0 and game_board[r][c - 1] == 2)
+                right = (c &lt; cols - 1 and game_board[r][c + 1] == 2)
+
+                points += 2 * (above + below + left + right)
+
+            c += 1
+        r += 1
+
+   
+    status = "survived the game" if points &gt;= 10 else "is out"
+    print(f"Points Gained: {points}. Your team has {status}.")</pre>
+</body>
+</html>

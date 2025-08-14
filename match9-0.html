@@ -1,0 +1,72 @@
+<html>
+<head>
+<title>A1_Sec05_23201603_Tushif-Ahamed.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec05_23201603_Tushif-Ahamed.txt<p></p><pre>
+Assignment task 1
+
+
+
+<a name="2"></a><font color="#0000FF"><a href="match9-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_21.gif"/></a>
+
+Assignment task 2
+
+def row_rotation(exam_week, seat_status):
+  row,col=seat_status.shape
+  result=np.zeros((row,col),dtype=object)
+  for i in range(row):
+    result[i]=seat_status[(i-exam_week+1)%row]
+  print(result)
+
+  for i in range(row):
+    for j in range(col):
+      if result[i][j]=='AA':
+        return i+1
+</font>
+
+<a name="1"></a><font color="#00FF00"><a href="match9-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_27.gif"/></a>
+
+Assignment task 3
+
+def compress_matrix(mat):
+  row,col=mat.shape
+  result=np.zeros((row//2,col//2,),dtype=int)
+  for i in range(0,row,2):
+    for j in range(0,col,2):
+      result[i//2][j//2]=mat[i][j]+mat[i+1][j]+mat[i][j+1]+mat[i+1][j+1]
+  return result
+</font>
+
+<a name="0"></a><font color="#FF0000"><a href="match9-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_46.gif"/></a>
+
+Assignment task 4
+
+def play_game(arena):
+  row,col=arena.shape
+  p=0
+  for i in range(row):
+    for j in range(col):
+      if arena[i][j]%50==0 and arena[i][j]!=0:
+        if 0&lt;i:
+          if arena[i-1][j]==2:
+            p+=2
+        if i&lt;row-1:
+          if arena[i+1][j]==2:
+            p+=2
+        if 0&lt;j:
+          if arena[i][j-1]==2:
+            p+=2
+        if j&lt;col-1:
+          if arena[i][j+1]==2:
+            p+=2
+
+  if p&lt;10:
+    print(f"Points Gained: {p}. Your team is out.")
+  else:
+    print(f"Points Gained: {p}. Your team has survived the game.")
+</font>
+</pre>
+</body>
+</html>

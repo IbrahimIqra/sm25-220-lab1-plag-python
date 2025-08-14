@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>[WRONG-TYPE]A1_Sec19_23101390_Shammi-Akter_.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec20_22201240_Abdullah-Al-Anan.txt<p></p><pre>
+Assignment Task 1:
+
+def mostWater(arr):
+  pointer1 = 0
+  pointer2 = len(arr)-1
+  max_area = 0
+<a name="1"></a><font color="#00FF00"><a href="match113-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_13.gif"/></a>
+
+  while pointer1 &lt; pointer2:
+    if arr[pointer1] &lt; arr[pointer2]:
+      height = arr[pointer1]
+    else:
+      height = arr[pointer2]
+    width = pointer2 - pointer1
+    area = height * width
+    if area &gt; max_area:
+      max_area = area
+    if arr[pointer1] &lt; arr[pointer2]:
+      pointer1 += 1
+    else:
+      pointer2 -= 1
+  print(max_area)
+</font>
+
+
+Assignment Task 2:
+
+def row_rotation(exam_week, seat_status):
+  row,col = len(seat_status),len(seat_status[0])
+  for i in range(exam_week-1):
+    temp_row=np.array([' ']*row)
+    for m in range(col):
+      temp_row[m]=seat_status[row-1][m]
+    for j in range(row-1,0,-1):
+      for k in range(col):
+        seat_status[j][k]=seat_status[j-1][k]
+    for l in range(col):
+      seat_status[0][l]=temp_row[l]
+
+  for n in range(row):
+    if seat_status[n][0]=='Z':
+      return n+1
+
+
+
+<a name="0"></a><font color="#FF0000"><a href="match113-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_24.gif"/></a>
+
+Assignment Task 3:
+
+def compress_matrix(mat):
+  row,col = len(mat),len(mat[0])
+  result = np.zeros((row//2,col//2),dtype=int)
+  count_row = -1
+  count_col = -1
+  for i in range(0,row+1//2,2):
+    count_row+=1
+    for j in range(0,col+1//2,2):
+      count_col+=1
+      result[count_row][count_col] = mat[i][j]+mat[i][j+1]+mat[i+1][j]+mat[i+1][j+1]
+      if count_col == 1:
+        count_col = -1
+  return result
+</font>
+
+
+<a name="2"></a><font color="#0000FF"><a href="match113-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_6.gif"/></a>
+
+Assignment Task 4:
+
+def play_game(arena):
+  point = 0
+  row,col = len(arena),len(arena[0])
+  for i in range(row):
+    for j in range(col):
+      if arena[i][j]%50==0 and arena[i][j]!=0:
+</font>        if j+1&lt;row-1 and arena[i][j+1]==2:
+          point+=2
+        if i-1&gt;=0 and arena[i-1][j]==2:
+          point+=2
+        if i+1&lt;col-1 and arena[i+1][j]==2:
+          point+=2
+        if j-1&gt;=0 and arena[i][j-1]==2:
+          point+=2
+  if point&lt;10:
+    message = "is out."
+  else:
+    message = "has survived the game."
+  print(f"Points Gained: {point}. Your team {message}")</pre>
+</body>
+</html>

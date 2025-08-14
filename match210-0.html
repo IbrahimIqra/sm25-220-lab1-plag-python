@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>A1_Sec19_22201661_S.-M.-Raihan-Khaled.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec19_22201661_S.-M.-Raihan-Khaled.txt<p></p><pre>
+Task2:
+
+
+<a name="1"></a><font color="#00FF00"><a href="match210-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_17.gif"/></a>
+
+def row_rotation(exam_week, seat_status):
+    total_rotation = exam_week - 1
+    total_rows, total_cols = seat_status.shape
+    aa_row_index = 0 
+
+    rotation_count = 0
+    while rotation_count &lt; total_rotation:
+        col_index = 0
+        while col_index &lt; total_cols:
+            last_item = seat_status[total_rows - 1][col_index]
+            row_index = total_rows - 1
+
+            while row_index &gt; 0:
+                seat_status[row_index][col_index] = seat_status[row_index - 1][col_index]
+</font>                if "AA" in seat_status[row_index][col_index]:
+                    aa_row_index = row_index
+                row_index = row_index - 1
+
+            seat_status[0][col_index] = last_item
+            col_index += 1
+        rotation_count += 1
+
+    print(seat_status)
+    return aa_row_index + 1  
+
+<a name="0"></a><font color="#FF0000"><a href="match210-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_24.gif"/></a>
+
+Task:3
+
+def compress_matrix(matrix):
+
+
+    total_rows, total_cols = matrix.shape
+    compressed_rows, compressed_cols = total_rows // 2, total_cols // 2
+    compressed = np.zeros((compressed_rows, compressed_cols), dtype=int)
+
+    i = 0
+    row_ptr = 0
+
+    while i &lt; total_rows:
+        j = 0
+        col_ptr = 0
+
+        while j &lt; total_cols:
+            block_sum = matrix[i][j] + matrix[i + 1][j] + matrix[i][j + 1] + matrix[i + 1][j + 1]
+            compressed[row_ptr][col_ptr] = block_sum
+</font>            col_ptr = col_ptr + 1
+            j = j + 2
+        row_ptr = row_ptr + 1
+        i = i + 2
+
+    return compressed
+
+Task4:
+
+
+<a name="2"></a><font color="#0000FF"><a href="match210-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_9.gif"/></a>
+
+def play_game(arena):
+    total_rows, total_cols = arena.shape
+    total_points = 0
+
+    row_index = 0
+    while row_index &lt; total_rows:
+        col_index = 0
+        while col_index &lt; total_cols:
+            current_value = arena[row_index][col_index]
+
+          
+            if current_value &gt;= 50 and current_value % 50 == 0:
+</font>
+                
+                if row_index + 1 &lt; total_rows and arena[row_index + 1][col_index] == 2:
+                    total_points += 2
+
+                
+                if row_index - 1 &gt;= 0 and arena[row_index - 1][col_index] == 2:
+                    total_points += 2
+
+                
+                if col_index + 1 &lt; total_cols and arena[row_index][col_index + 1] == 2:
+                    total_points += 2
+
+                
+                if col_index - 1 &gt;= 0 and arena[row_index][col_index - 1] == 2:
+                    total_points += 2
+
+            col_index += 1
+        row_index += 1
+
+
+    if total_points &gt;= 10:
+        print(f"Points Gained: {total_points}. Your team has survived the game.")
+    else:
+        print(f"Points Gained: {total_points}. Your team is out.")
+
+
+</pre>
+</body>
+</html>

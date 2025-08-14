@@ -1,0 +1,134 @@
+<html>
+<head>
+<title>A1_Sec05_23301555_Arafat-Ahmed-Aungsh.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec05_23301555_Arafat-Ahmed-Aungsh.txt<p></p><pre>
+Task-1 
+
+def mostWater(arr):
+    max_area = 0
+    left = 0
+    right = len(arr) - 1
+    
+    while left &lt; right:
+<a name="2"></a><font color="#0000FF"><a href="match87-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+        current_height = min(arr[left], arr[right])
+        current_width = right - left
+        current_area = current_height * current_width
+        if current_area &gt; max_area:
+            max_area = current_area
+        if arr[left] &lt; arr[right]:
+            left += 1
+        else:
+            right -= 1
+    
+    print(max_area)
+</font>
+Task-2
+
+def print_matrix(m):
+    if type(m) == np.ndarray:
+        row, col = m.shape
+        for i in range(row):
+            print('|', end='')
+            for j in range(col):
+                if len(str(m[i][j])) == 1:
+                    print(f'  {m[i][j]}  |', end='')
+                else:
+                    print(f'  {m[i][j]} |', end='')
+            print()
+            print('-' * (6 * col + 1))
+
+def row_rotation(exam_week, seat_status):
+    for _ in range(exam_week):
+        last_row = seat_status[-1].copy()
+        for i in range(len(seat_status) - 1, 0, -1):
+            seat_status[i] = seat_status[i - 1]
+        seat_status[0] = last_row
+    
+    print_matrix(seat_status)
+    
+    for i in range(len(seat_status)):
+        if 'AA' in seat_status[i]:
+            return i + 1  
+    return None 
+
+Task-3
+
+def print_matrix(m):
+    if type(m) == np.ndarray:
+        row, col = m.shape
+        for i in range(row):
+            print('|', end='')
+            for j in range(col):
+                if len(str(m[i][j])) == 1:
+                    print(f'  {m[i][j]}  |', end='')
+                else:
+                    print(f'  {m[i][j]} |', end='')
+            print()
+            print('-' * (6 * col + 1))
+
+def compress_matrix(mat):
+    rows = len(mat)
+    cols = len(mat[0]) if rows &gt; 0 else 0
+    compressed_rows = rows // 2
+    compressed_cols = cols // 2
+    compressed = np.array([[0] * compressed_cols for _ in range(compressed_rows)])
+    
+<a name="1"></a><font color="#00FF00"><a href="match87-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_11.gif"/></a>
+
+    for i in range(0, rows, 2):
+        for j in range(0, cols, 2):
+            total = mat[i][j] + mat[i][j+1] + mat[i+1][j] + mat[i+1][j+1]
+            compressed[i//2][j//2] = total
+    
+    return compressed
+</font>
+Task-4
+
+def print_matrix(m):
+    if type(m) == np.ndarray:
+        row, col = m.shape
+        for i in range(row):
+            c = 1
+            print('|', end='')
+            for j in range(col):
+                c += 1
+                if len(str(m[i][j])) == 1:
+                    print(' ', m[i][j], end='  |')
+                    c += 6
+                else:
+                    print(' ', m[i][j], end=' |')
+                    c += 6
+            print()
+            print('-' * (c - col))
+
+def play_game(arena):
+    total_points = 0
+    rows = len(arena)
+<a name="0"></a><font color="#FF0000"><a href="match87-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_19.gif"/></a>
+
+    cols = len(arena[0]) if rows &gt; 0 else 0
+    
+    for i in range(rows):
+        for j in range(cols):
+            if arena[i][j] % 360 == 0 and arena[i][j] != 0:
+                # Check up
+                if i &gt; 0 and arena[i-1][j] == 2:
+                    total_points += 2
+                # Check down
+                if i &lt; rows - 1 and arena[i+1][j] == 2:
+                    total_points += 2
+                # Check left
+                if j &gt; 0 and arena[i][j-1] == 2:
+                    total_points += 2
+                # Check right
+                if j &lt; cols - 1 and arena[i][j+1] == 2:
+                    total_points += 2
+</font>
+</pre>
+</body>
+</html>

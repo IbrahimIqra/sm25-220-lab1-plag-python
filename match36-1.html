@@ -1,0 +1,112 @@
+<html>
+<head>
+<title>A1_Sec20_22201240_Abdullah-Al-Anan.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec25_22201246_Shakawat-Hossain-Samir.txt<p></p><pre>
+﻿Task:1
+
+
+def mostWater(arr):
+  max_area = 0
+  for i in range(len(height)):
+    for j in range(i+1,len(height)):
+      area = (j-i)*min(height[i],height[j])
+      if area &gt; max_area:
+        max_area = area
+  print(max_area)
+
+
+Task:2
+
+
+def row_rotation(exam_week, seat_status):
+    total_rows, total_cols = seat_status.shape
+
+
+<a name="0"></a><font color="#FF0000"><a href="match36-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_25.gif"/></a>
+
+    for rotation in range(exam_week - 1):
+        placeholder_row = np.array(["  "] * total_rows)
+
+
+        for col in range(total_cols):
+            placeholder_row[col] =seat_status[total_rows - 1][col]
+
+
+        for row in range(total_rows - 1, 0, -1):
+            for col in range(total_cols):
+                seat_status[row][col] =seat_status[row - 1][col]
+
+
+        for col in range(total_cols):
+            seat_status[0][col] = placeholder_row[col]
+
+
+    for row in range(total_rows):
+        if seat_status[row][0] == 'Z':
+            return row + 1
+
+
+
+
+
+
+
+
+
+
+
+
+Task:3
+</font>
+
+def compress_matrix(mat):
+  row, col = mat.shape
+  result = np.zeros((row // 2, col // 2), dtype=int)
+  row_pos = 0
+  for i in range(0, row, 2):
+    col_pos = 0
+    for j in range(0, col, 2):
+<a name="2"></a><font color="#0000FF"><a href="match36-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_9.gif"/></a>
+
+      result[row_pos][col_pos] = mat[i][j] + mat[i][j+1] + mat[i+1][j] + mat[i+1][j+1]
+</font>      col_pos += 1
+    row_pos += 1
+
+
+  return result
+
+
+Task:4
+
+
+def play_game(arena):
+  score = 0
+  row, col = arena.shape
+<a name="4"></a><font color="#FF00FF"><a href="match36-0.html#4" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_7.gif"/></a>
+
+  for r in range(row):
+    for c in range(col):
+      if arena[r][c] % 50 == 0 and arena[r][c] != 0:
+        if c + 1 &lt; col and arena[r][c + 1] == 2:
+</font><a name="1"></a><font color="#00FF00"><a href="match36-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_9.gif"/></a>
+
+          score += 2
+        if r - 1 &gt;= 0 and arena[r - 1][c] == 2:
+          score += 2
+        if r + 1 &lt; row and arena[r + 1][c] == 2:
+</font><a name="3"></a><font color="#00FFFF"><a href="match36-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_8.gif"/></a>
+
+          score += 2
+        if c - 1 &gt;= 0 and arena[r][c - 1] == 2:
+          score += 2
+</font>
+
+    result = "has survived the game." if score &gt;= 10 else "is out."
+
+
+    print(f"Points Gained: {score}. Your team {result}")</pre>
+</body>
+</html>

@@ -1,0 +1,83 @@
+<html>
+<head>
+<title>A1_Sec08_23101049_Kazi-Arafat-Bin-Ibrahim.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec15_23101336_A.K.M-Muballig-Haque.txt<p></p><pre>
+Lab 1
+
+def mostWater(arr):
+  water=0
+  x=0
+  y=len(arr)-1
+  while x&lt;y:
+    new_water=min(arr[x],arr[y])*(y-x)
+    water=max(water,new_water)
+    if arr[x]&lt;arr[y]:
+      x+=1
+    else:
+      y-=1
+  print(water)
+
+
+
+lab 2
+
+def row_rotation(exam_week, seat_status):
+  r,c=seat_status.shape
+  new=np.zeros(c,dtype=object)
+  for x in range(exam_week):
+<a name="1"></a><font color="#00FF00"><a href="match30-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_25.gif"/></a>
+
+    for y in range(c):
+      new[y]=seat_status[r-1][y]
+    for z in range(r-2,-1,-1):
+      for y in range(c):
+        seat_status[z+1][y]=seat_status[z][y]
+    for y in range(c):
+      seat_status[0][y]=new[y]
+  print_matrix(seat_status)
+  for z in range(r):
+    for y in range(c):
+      if seat_status[z][y]=='AA':
+        return z+1
+</font>
+
+
+Lab 3
+
+<a name="0"></a><font color="#FF0000"><a href="match30-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_27.gif"/></a>
+
+def compressed_matrix(mat):
+  r=mat.shape[0]
+  c=mat.shape[1]
+  new=np.zeros((r//2,c//2),dtype=int)
+  for j in range(0,r,2):
+    for i in range(0,c,2):
+      tot=mat[j][i]+mat[j][i+1]+mat[j+1][i]+mat[j+1][i+1]
+      new[j//2][i//2]=tot
+      tot=0
+  return new
+</font>
+
+
+Lab 4
+
+<a name="2"></a><font color="#0000FF"><a href="match30-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_17.gif"/></a>
+
+def play_game(arena):
+  r,c=arena.shape
+  p=0
+  for x in range(0,r):
+    for y in range(0,c):
+      if arena[x][y]%50==0:
+        for z in range(x-1,x+2):
+          if z==2:
+            p+=2
+  if p&gt;10:
+    print(f'Points Gained: {p}. Your team has survived the game.')
+  else:
+    print(f'Points Gained: {p}. Your team is out.')</font></pre>
+</body>
+</html>

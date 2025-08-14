@@ -1,0 +1,98 @@
+<html>
+<head>
+<title>A1_Sec27_22299427_Abdullah-Al-Kawsar.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec27_22299427_Abdullah-Al-Kawsar.txt<p></p><pre>
+Assignment Task 1: Container with Most Water
+
+def mostWater(arr):
+  #To Do
+  area = 0
+  left_count = 0
+  right_count = len(arr)-1
+  while left_count &lt; right_count:
+    if arr[left_count] &lt; arr[right_count]:
+        height = arr[left_count]
+    else:
+        height = arr[right_count]
+    width = right_count - left_count
+
+    temp = height * width
+
+<a name="3"></a><font color="#00FFFF"><a href="match53-1.html#3" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_6.gif"/></a>
+
+    if temp &gt; area:
+        area = temp
+    if arr[left_count] &lt; arr[right_count]:
+        left_count += 1
+    else:
+        right_count -= 1
+
+    print(area)
+</font>
+Assignment Task 2: Row Rotation Policy
+
+def row_rotation(exam_week, seat_status):
+  #To Do
+    new = np.array([0]*len(seat_status[0]), dtype=object)
+    for x in range(exam_week-1):
+ 
+<a name="1"></a><font color="#00FF00"><a href="match53-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_9.gif"/></a>
+
+        for j in range(len(new)):
+            new[j] = seat_status[len(seat_status)-1][j]
+        for i in range(len(seat_status)-1,0,-1):
+            seat_status[i] = seat_status[i-1]
+        seat_status[0] = new
+</font>    for i in range(len(seat_status)):
+        if 'AA' in seat_status[i]:
+            return i+1
+
+Assignment Task 3: Matrix Compressions
+
+def compress_matrix(mat):
+  #TO DO
+  row = len(mat)
+  com_row = row // 2
+  col = len(mat[0])
+<a name="2"></a><font color="#0000FF"><a href="match53-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+  com_col = col // 2
+  new_arr = np.zeros((com_row, com_col), dtype=int)
+  for i in range (0,row,2):
+    for j in range(0,col,2):
+        sum = mat[i][j] + mat[i+1][j] + mat[i][j+1] + mat[i+1][j+1]
+</font><a name="4"></a><font color="#FF00FF"><a href="match53-1.html#4" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_5.gif"/></a>
+
+        new_arr[i//2][j//2] = sum
+  return new_arr
+</font>
+Assignment Task 4: Game Arena
+
+def play_game(arena):
+    row=len(arena)
+    col=len(arena[0])
+    sum=0
+    for i in range(row):
+        for j in range(col):
+<a name="0"></a><font color="#FF0000"><a href="match53-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_23.gif"/></a>
+
+            if arena[i][j]%50 == 0:
+                if i+1&lt;row and arena[i+1][j] == 2:
+                    sum += 2
+                if i-1&lt;-1 and arena[i-1][j] == 2:
+                    sum += 2
+                if j+1&lt;col and arena[i][j+1] == 2:
+                    sum += 2
+                if j-1&gt;col and arena[i][j-1] == 2:
+                    sum += 2
+    if sum &lt; 10:
+        print(f'points gained: {sum}. Your team is out.')
+    else:
+</font>        print(f'points gained: {sum}. Your team has survived the game.')
+
+</pre>
+</body>
+</html>

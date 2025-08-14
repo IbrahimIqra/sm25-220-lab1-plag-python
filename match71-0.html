@@ -1,0 +1,138 @@
+<html>
+<head>
+<title>A1_Sec27_23201462_RUBAB-SAZDA.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec27_23201462_RUBAB-SAZDA.txt<p></p><pre>
+#Task 1: 
+def mostWater(arr):
+  c_left=0
+  c_right=len(arr)-1
+  max_area=0
+
+  for i in range( len(arr)-1):
+    if arr[c_left]&lt; arr[c_right]:
+      h= arr[c_left]
+
+    else:
+      h= arr[c_right]
+
+    w= c_right - c_left
+    new_area= h * w
+    if new_area&gt; max_area:
+      max_area= new_area
+
+    if arr[c_left]&lt; arr[c_right]:
+      c_left= c_left +1
+
+    else:
+      c_right= c_right -1 
+
+  print ( max_area)
+
+
+#Task 2:
+def row_rotation(exam_week, seat_status):
+    rows = len(seat_status)
+    cols = len(seat_status[0])
+    rotate = exam_week - 1  
+    rotated = []
+    for i in range(rows):
+        new_row = []
+        for j in range(cols):
+            new_row += [""] 
+        rotated += [new_row] 
+
+   
+    for i in range(rows):
+        new_i = (i + rotate) % rows
+        for j in range(cols):
+<a name="2"></a><font color="#0000FF"><a href="match71-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+            rotated[new_i][j] = seat_status[i][j]
+
+   
+    print_matrix(rotated)
+
+    for i in range(rows):
+        for j in range(cols):
+            if rotated[i][j] == "AA":
+                return i + 1  
+
+#Task03
+
+def compress_matrix(mat):
+</font>    row = len(mat)
+    col = len(mat[0])
+<a name="0"></a><font color="#FF0000"><a href="match71-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_23.gif"/></a>
+
+    new_row = row // 2
+    new_col = col // 2
+
+    
+    result = np.zeros((new_row, new_col), dtype=int)
+
+    #for i in range(0, row, 1):
+        #for j in range(0, col, 1):
+        #block_sum = (
+                #mat[i][j] +
+                #mat[i+1][j] +
+                #mat[i][j+1] +
+                #mat[i+1][j+1]
+            #)
+            #result[i//2][j//2] = block_sum
+
+
+    for i in range( 0, row, 2):
+        for j in range(0, col, 2):
+            sum = (
+                mat[i][j] +
+                mat[i+1][j] +
+                mat[i][j+1] +
+                mat[i+1][j+1]
+            )
+            result[i//2][j//2] = sum
+
+    return result
+
+
+#task04
+
+def play_game(arena):
+    rows, cols = arena.shape
+    t_point = 0
+
+    for i in range(rows):
+      for j in range(cols):
+</font>          if arena[i][j] % 50 == 0 and arena[i][j] != 0:
+                
+              points = 0
+                
+<a name="1"></a><font color="#00FF00"><a href="match71-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_20.gif"/></a>
+
+              if i &gt; 0 and arena[i-1][j] == 2:
+                  points += 2
+                
+              if i &lt; rows - 1 and arena[i+1][j] == 2:
+                  points += 2
+                
+              if j &gt; 0 and arena[i][j-1] == 2:
+                  points += 2
+                
+              if j &lt; cols - 1 and arena[i][j+1] == 2:
+                  points += 2
+                
+              t_point += points
+    
+    if t_point &gt;= 10:
+        print(f"Points Gained: {t_point}. Your team has survived the game.")
+    else:
+</font>        print(f"Points Gained: {t_point}. Your team is out.")
+
+
+
+
+</pre>
+</body>
+</html>

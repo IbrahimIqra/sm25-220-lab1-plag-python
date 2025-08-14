@@ -1,0 +1,123 @@
+<html>
+<head>
+<title>A1_Sec27_22299427_Abdullah-Al-Kawsar.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec07_22299306_SHAH-MA-SAIYARA-SRIJA.txt<p></p><pre>
+﻿# task 01
+
+
+def mostWater(arr):
+    start = 0
+    end = len(storage) - 1
+    max_capacity = 0
+
+
+    while start &lt; end:
+        min_wall = min(storage[start], storage[end])
+        capacity = min_wall * (end - start)
+
+
+<a name="3"></a><font color="#00FFFF"><a href="match53-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_6.gif"/></a>
+
+        if capacity &gt; max_capacity:
+            max_capacity = capacity
+
+
+        if storage[start] &lt; storage[end]:
+            start += 1
+        else:
+            end -= 1
+
+
+    print(max_capacity)
+</font>
+
+
+
+
+
+Task 02:
+
+
+def row_rotation(exam_week, seat_status):
+    for x in range(exam_week-1):
+        new_arr = np.array([0]*len(seat_status[0]), dtype=object)
+<a name="1"></a><font color="#00FF00"><a href="match53-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_9.gif"/></a>
+
+        for j in range(len(new_arr)):
+            new_arr[j] = seat_status[len(seat_status)-1][j]
+        for i in range(len(seat_status)-1,0,-1):
+            seat_status[i] = seat_status[i-1]
+        seat_status[0] = new_arr
+</font>    print_matrix(seat_status)
+    for i in range(len(seat_status)):
+        if 'AA' in seat_status[i]:
+            return i+1
+
+
+
+
+
+
+#Task 03: Matrix Compression
+
+
+import numpy as np
+
+
+def compress_matrix(mat):
+    rows, cols = len(mat), len(mat[0])
+<a name="2"></a><font color="#0000FF"><a href="match53-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+    c_rows, c_cols = rows // 2, cols // 2
+    compressed = np.zeros((c_rows, c_cols), dtype=int)
+    for i in range(0, rows, 2):
+        for j in range(0, cols, 2):
+            block_sum = (mat[i][j] + mat[i][j + 1] +mat[i + 1][j] + mat[i + 1][j + 1])
+</font><a name="4"></a><font color="#FF00FF"><a href="match53-0.html#4" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_5.gif"/></a>
+
+            compressed[i // 2][j // 2] = block_sum
+    return compressed
+</font>def print_matrix(matrix):
+    for row in matrix:
+        print("|", end=" ")
+        for element in row:
+            print(f"{element:3}", end=" | ")
+        print("\n" + "-" * (len(row) * 5 + 1))
+
+
+
+
+
+
+
+
+
+
+#Task 04: Game Arena
+
+
+def play_game(arena):
+    row,col = arena.shape
+    sum = 0
+    for i in range(len(arena)):
+        for j in range(len(arena[i])):
+<a name="0"></a><font color="#FF0000"><a href="match53-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_23.gif"/></a>
+
+            if arena[i][j]%50 == 0:
+                if i+1&lt;row and arena[i+1][j] == 2:
+                    sum += 2
+                if i-1&lt;-1 and arena[i-1][j] == 2:
+                    sum += 2
+                if j+1&lt;col and arena[i][j+1] == 2:
+                    sum += 2
+                if j-1&gt;col and arena[i][j-1] == 2:
+                    sum += 2
+    if sum &lt; 10:
+        print(f'points gained: {sum}. Your team is out.')
+    else:
+</font>        print(f'points gained: {sum}. Your team has survived the game.')</pre>
+</body>
+</html>

@@ -1,0 +1,96 @@
+<html>
+<head>
+<title>A1_Sec11_22299465_Lotus-Lazim.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec17_22201815_Moshfeka-Ali.txt<p></p><pre>
+TASK 1
+
+<a name="0"></a><font color="#FF0000"><a href="match152-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_18.gif"/></a>
+
+def mostWater(arr):
+    left=0
+    right=len(arr) - 1
+    maximum_water=0
+    while left&lt;right:
+        if arr[left]&lt;arr[right]:
+            current_height=arr[left]
+        else:
+            current_height=arr[right]
+        current_width=right - left
+        current_water=current_height * current_width
+        if current_water&gt;max_water:
+            maximum_water=current_water
+        if arr[left]&lt;arr[right]:
+            left += 1
+        else:
+            right -= 1
+    print(maximum_water)
+
+TASK 2
+    def row_rotation(exam_week, seat_status):
+        rotations = (exam_week- 1)%6
+</font>        rows = len(seat_status) 
+        cols = len(seat_status[0])if rows &gt; 0 else 0
+        for _ in range(rotations):
+            temp_row = seat_status[rows - 1][:]
+            for i in range(rows - 1, 0, -1):
+                seat_status[i] = seat_status[i - 1][:]  
+            seat_status[0] = temp_row
+        aa_row = -1
+        for i in range(rows):
+            if "AA" in seat_status[i]:
+                aa_row = i
+                break
+        for row in seat_status:
+            print("| " + " | ".join(row) + " |")
+        return aa_row + 1
+
+TASK3
+
+def compress_matrix(mat):
+    rows = len(mat)
+    cols = len(mat[0])
+    if rows % 2 != 0 or cols % 2 != 0:
+        raise ValueError("Matrix rows and columns must be even")
+    result = [[0 for _ in range(cols//2)] for _ in range(rows//2)]
+    result_i = 0
+    result_j = 0
+    for i in range(0, rows, 2):
+        result_j = 0
+        for j in range(0, cols, 2):
+<a name="2"></a><font color="#0000FF"><a href="match152-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_7.gif"/></a>
+
+            result[result_i][result_j] = mat[i][j] + mat[i][j+1] + mat[i+1][j] + mat[i+1][j+1]
+</font>            result_j += 1
+        result_i += 1
+    return result
+
+TASk4
+
+def play_game(arena):
+    rows=len(arena)
+    cols=len(arena[0])
+    team_points=0
+<a name="1"></a><font color="#00FF00"><a href="match152-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_17.gif"/></a>
+
+    def check_surroundings(row, col):
+        points=0
+        if row&gt;0 and arena[row-1][col]==2:
+            points+=2
+        if row&lt;rows-1 and arena[row+1][col]==2:
+            points+=2
+        if col&gt;0 and arena[row][col-1]==2:
+            points+=2
+        if col&lt;cols-1 and arena[row][col+1]==2:
+            points+=2
+</font>        return points
+    for row in range(rows):
+        for col in range(cols):
+            if arena[row][col]&gt;0 and arena[row][col]% 50==0:
+                team_points+=check_surroundings(row, col)
+    result="has survived the game" if team_points&gt;=10 else "is out"
+    return f"Points Gained: {team_points}. Your team {result}."</pre>
+</body>
+</html>

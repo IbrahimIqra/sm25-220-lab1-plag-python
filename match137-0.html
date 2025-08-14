@@ -1,0 +1,78 @@
+<html>
+<head>
+<title>A1_Sec13_22101425_Khandokar-Yusuf-Khalid.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec13_22101425_Khandokar-Yusuf-Khalid.txt<p></p><pre>
+def mostWater(arr):
+  
+  max_water = 0
+  left = 0
+  right = len(arr) - 1
+
+  while left &lt; right:
+    height_left = arr[left]
+    height_right = arr[right]
+    min_height = min(height_left, height_right)
+    width = right - left
+    current_water = min_height * width
+    max_water = max(max_water, current_water)
+
+    if height_left &lt; height_right:
+      left += 1
+    else:
+      right -= 1
+
+  print(max_water)
+
+
+
+
+def row_rotation(exam_week, seat_status):
+  rotated = np.roll(seat_status, exam_week - 1, axis=0)
+  print_matrix(rotated)
+  for i in range(len(rotated)):
+    if "AA" in rotated[i]:
+      return i + 1
+
+
+
+def compress_matrix(mat):
+    rows = len(mat)
+<a name="0"></a><font color="#FF0000"><a href="match137-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_34.gif"/></a>
+
+    cols = len(mat[0])
+    result = np.zeros((rows // 2, cols // 2), dtype=int)
+    for i in range(0, rows, 2):
+        for j in range(0, cols, 2):
+            result[i // 2][j // 2] = mat[i][j] + mat[i][j+1] + mat[i+1][j] + mat[i+1][j+1]
+    return result
+
+
+
+def play_game(arena):
+    rows, cols = len(arena), len(arena[0])
+    total_points = 0
+
+    for i in range(rows):
+        for j in range(cols):
+            if arena[i][j] % 50 == 0 and arena[i][j] != 0:
+</font><a name="1"></a><font color="#00FF00"><a href="match137-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_27.gif"/></a>
+
+                if i &gt; 0 and arena[i - 1][j] == 2:
+                    total_points += 2
+                if i &lt; rows - 1 and arena[i + 1][j] == 2:
+                    total_points += 2
+                if j &gt; 0 and arena[i][j - 1] == 2:
+                    total_points += 2
+                if j &lt; cols - 1 and arena[i][j + 1] == 2:
+                    total_points += 2
+
+    if total_points &gt;= 10:
+        print(f"Points Gained: {total_points}. Your team has survived the game.")
+    else:
+        print(f"Points Gained: {total_points}. Your team is out.")
+</font></pre>
+</body>
+</html>

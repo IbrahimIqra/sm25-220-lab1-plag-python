@@ -1,0 +1,102 @@
+<html>
+<head>
+<title>A1_Sec11_22299465_Lotus-Lazim.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec09_22101556_Samiha-Sanjida-Aunanna.txt<p></p><pre>
+#task1
+
+def mostWater(arr):
+    n = len(arr)
+    max = 0
+
+    for i in range(n):
+        for j in range(i + 1, n):
+<a name="2"></a><font color="#0000FF"><a href="match75-0.html#2" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_8.gif"/></a>
+
+            if arr[i] &lt; arr[j]:
+                height = arr[i]
+            else:
+                height = arr[j]
+            width = j - i
+            area = height * width
+
+            if area &gt; max:
+                max = area
+</font>
+    print(max)
+
+#task2
+<a name="4"></a><font color="#FF00FF"><a href="match75-0.html#4" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_5.gif"/></a>
+
+def row_rotation(exam_week, seat_status):
+  length = len(seat_status)
+  col_len = len(seat_status[0])
+  for x in range(exam_week-1):
+    temp = np.zeros(col_len, dtype=object)
+</font><a name="0"></a><font color="#FF0000"><a href="match75-0.html#0" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_20.gif"/></a>
+
+    for y in range(col_len):
+      temp[y] = seat_status[length-1][y]
+    for i in range(length-1, 0, -1):
+      for j in range(col_len):
+        seat_status[i][j] = seat_status[i-1][j]
+    for k in range(col_len):
+      seat_status[0][k] = temp[k]
+  print_matrix(seat_status)
+  for row in range(length):
+    for col in range(col_len):
+      if seat_status[row][col] == 'AA':
+        return row + 1
+</font>
+#task3
+
+def compress_matrix(mat):
+  row, col = mat.shape
+  new_row = row // 2
+  new_col = col // 2
+  result = np.zeros((new_row, new_col), dtype=int)
+  x = 0
+  for i in range(0, row, 2):
+    y = 0
+<a name="1"></a><font color="#00FF00"><a href="match75-0.html#1" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_10.gif"/></a>
+
+    for j in range(0, col, 2):
+      total = mat[i][j] + mat[i][j+1] + mat[i+1][j] + mat[i+1][j+1]
+      result[x][y] = total
+</font>      y += 1
+    x += 1
+  return result
+
+#task4
+def play_game(arena):
+  row, col = arena.shape
+<a name="3"></a><font color="#00FFFF"><a href="match75-0.html#3" target="0"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_6.gif"/></a>
+
+  count = 0
+  for i in range(row):
+    for j in range(col):
+      if arena[i][j] % 50 == 0 and arena[i][j] &gt; 0:
+</font>        points = 0
+        if i &gt; 0:
+          if arena[i-1][j] == 2:
+            points += 2
+        if i &lt; row-1:
+          if arena[i+1][j] == 2:
+            points += 2
+        if j &gt; 0:
+          if arena[i][j-1] == 2:
+            points += 2
+        if j &lt; col-1:
+          if arena[i][j+1] == 2:
+            points += 2
+        count += points
+  if count &gt;= 10:
+    print(f'Points Gained: {count}. Your team has survived the game.')
+  else:
+    print(f'Points Gained: {count}. Your team is out.')
+
+</pre>
+</body>
+</html>

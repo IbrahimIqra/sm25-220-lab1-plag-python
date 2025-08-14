@@ -1,0 +1,120 @@
+<html>
+<head>
+<title>A1_Sec08_22201926_Purnata-Chowdhury.txt</title>
+</head>
+<body bgcolor="white">
+<hr/>
+A1_Sec08_22201926_Purnata-Chowdhury.txt<p></p><pre>
+Assignment 01
+
+Task 01
+
+def mostWater(arr):
+    x = 0
+    y = len(arr) - 1
+    max_area = 0
+<a name="0"></a><font color="#FF0000"><a href="match130-1.html#0" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_0_12.gif"/></a>
+
+    while x &lt; y:
+        width = y - x
+        if arr[x] &lt; arr[y]:
+            height = arr[x]
+        else:
+            height = arr[y]
+
+        curr_area = width * height
+
+        if curr_area &gt; max_area:
+            max_area = curr_area
+
+        if arr[x] &lt; arr[y]:
+            x += 1
+</font>        else:
+            y -= 1
+
+    print(max_area)
+
+
+Task 02
+
+
+def row_rotation(exam_week, seat_status):
+
+  for i in range(exam_week-1):
+    save=seat_status[-1]
+    newarr=np.zeros(len(save),dtype=object)
+    for i in range(len(save)):
+      newarr[i]=save[i]
+
+    for i in range(len(seat_status)-1,-1,-1):
+      seat_status[i]=seat_status[i-1]
+    seat_status[0]=newarr
+    print(seat_status)
+  count=1
+  for row in seat_status:
+    if "AA" in row:
+      break
+    else:
+      count+=1
+  return count
+
+
+<a name="2"></a><font color="#0000FF"><a href="match130-1.html#2" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_2_8.gif"/></a>
+
+Task 03
+
+def compress_matrix(mat):
+  
+  row,col = mat.shape
+  compressed_matrix1=np.zeros((row//2,col//2),dtype=int)
+  for i in range(0,row,2):
+    for j in range(0,col,2):
+      compressed_matrix1[i//2,j//2]=(mat[i,j]+mat[i,j+1]+mat[i+1,j]+mat[i+1,j+1])
+</font>  return compressed_matrix1
+def print_matrix(matrix):
+  for row in matrix:
+    print(" | ", end=" ")
+    for col in row:
+      print(col,end=" | ")
+    print("")
+  print("-"*(len(matrix[0]*4+1)))
+
+
+Task 04
+
+def play_game(arena):
+  
+
+    total_points = 0
+    for i in range(len(arena)):
+        for j in range(len(arena[0])):
+<a name="1"></a><font color="#00FF00"><a href="match130-1.html#1" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_1_9.gif"/></a>
+
+            if arena[i][j]&gt;0 and arena[i][j] % 50 == 0:
+                points = 0
+
+                if i &gt; 0 and arena[i - 1][j] == 2:
+                    points += 1
+
+                if i &lt; len(arena) - 1 and arena[i + 1][j] == 2:
+</font><a name="3"></a><font color="#00FFFF"><a href="match130-1.html#3" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_3_8.gif"/></a>
+
+                    points += 1
+
+                if j &gt; 0 and arena[i][j - 1] == 2:
+                    points += 1
+
+                if j &lt; len(arena[0]) - 1 and arena[i][j + 1] == 2:
+</font><a name="4"></a><font color="#FF00FF"><a href="match130-1.html#4" target="1"><img align="left" alt="other" border="0" src="http://moss.stanford.edu/bitmaps/tm_4_6.gif"/></a>
+
+                    points += 1
+                total_points += points *2
+
+    if total_points &gt;= 10:
+        print (f"Points Gained: {total_points}. Your team has survived the game.")
+    else:
+</font>        print (f"Points Gained: {total_points}. Your team is out.")
+
+</pre>
+</body>
+</html>
